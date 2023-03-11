@@ -1,4 +1,4 @@
-import { UserStructure } from "../../types";
+import { UserStructure } from "./types";
 import { loginUserActionCreator, userReducer } from "./userSlice";
 
 describe("Given loginUser reducer", () => {
@@ -6,7 +6,7 @@ describe("Given loginUser reducer", () => {
     test("Then it should return the same user with his property isLogged set as true", () => {
       const user: UserStructure = {
         username: "Pet",
-        token: "",
+        token: "woofMeowMooOink",
         isLogged: false,
       };
 
@@ -16,9 +16,7 @@ describe("Given loginUser reducer", () => {
         isLogged: true,
       };
 
-      const fakeToken = "woofMeowMooOink";
-
-      const userLogged = userReducer(user, loginUserActionCreator(fakeToken));
+      const userLogged = userReducer(user, loginUserActionCreator(user));
 
       expect(userLogged).toStrictEqual(expectedUser);
     });
