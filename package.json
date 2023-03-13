@@ -4,6 +4,9 @@
   "private": true,
   "type": "module",
   "dependencies": {
+    "@fontsource/baloo-bhai-2": "^4.5.12",
+    "@fontsource/roboto": "^4.5.8",
+    "@fontsource/sedgwick-ave": "^4.5.10",
     "@reduxjs/toolkit": "^1.9.2",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
