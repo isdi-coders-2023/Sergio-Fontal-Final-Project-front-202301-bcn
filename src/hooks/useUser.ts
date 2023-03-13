@@ -1,6 +1,6 @@
 import { useAppDispatch } from "../store/hooks";
 import { loginUserActionCreator } from "../store/features/userSlice";
-import { CustomJwtPayload, loginResponse, UserCredentials } from "./types";
+import { CustomJwtPayload, LoginResponse, UserCredentials } from "./types";
 import decodeToken from "jwt-decode";
 
 const useUser = () => {
@@ -15,7 +15,7 @@ const useUser = () => {
       headers: { "Content-type": "application/json" },
     });
 
-    const { token }: loginResponse = await response.json();
+    const { token }: LoginResponse = await response.json();
 
     const { username }: CustomJwtPayload = decodeToken(token);
 
