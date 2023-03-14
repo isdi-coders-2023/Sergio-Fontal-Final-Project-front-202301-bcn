@@ -27,6 +27,7 @@ ol, ul, li {
 
 h1, h2, h3, h4, h5, h6 {
   font-size: 1rem;
+  font-weight: 100;
   margin: 0;
   padding: 0;
 }
