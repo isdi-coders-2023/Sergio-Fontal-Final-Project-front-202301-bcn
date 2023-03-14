@@ -27,7 +27,7 @@ jest.mock("../store/hooks", () => ({
 jest.mock("jwt-decode", () => jest.fn());
 
 const userCredentials: UserCredentials = {
-  username: "Pet",
+  email: "pet@petalert.com",
   password: "PetAdmin",
 };
 
@@ -39,7 +39,7 @@ const mockTokenPayload: CustomJwtPayload = {
 const mockToken = "mockedToken";
 
 describe("Given a useUser custom Hook", () => {
-  describe("When its loginUser function is called with the username 'Pet' and the password 'PetAdmin'", () => {
+  describe("When its loginUser function is called with the username 'pet@petalert.com' and the password 'PetAdmin'", () => {
     test("Then it should call the dispatch with the loginUser Action creator", async () => {
       const {
         result: {
@@ -53,6 +53,7 @@ describe("Given a useUser custom Hook", () => {
 
       const mockedUser: UserStructure = {
         username: mockTokenPayload.username,
+        email: mockTokenPayload.email,
         token: mockToken,
       };
 
