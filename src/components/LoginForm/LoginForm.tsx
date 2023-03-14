@@ -1,9 +1,40 @@
 import LoginFormStyled from "./LoginFormStyled";
 import Button from "../Button/Button";
+import useUser from "../../hooks/useUser";
+import { useState } from "react";
+import { UserCredentials } from "../../hooks/types";
+
+const ininitalFormData: UserCredentials = { email: "", password: "" };
 
 const LoginForm = (): JSX.Element => {
+  const { loginUser } = useUser();
+
+  const [email, setEmail] = useState(ininitalFormData.email);
+  const [password, setPassword] = useState(ininitalFormData.password);
+
+  const handleEmail = ({
+    target: { value },
+  }: React.ChangeEvent<HTMLInputElement>) => {
+    setEmail(value);
+  };
+
+  const handlePassword = ({
+    target: { value },
+  }: React.ChangeEvent<HTMLInputElement>) => {
+    setPassword(value);
+  };
+
+  const onSubmitHandler = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    await loginUser({ email, password });
+
+    setEmail(ininitalFormData.email);
+    setPassword(ininitalFormData.password);
+  };
+
   return (
-    <LoginFormStyled className="login-form">
+    <LoginFormStyled className="login-form" onSubmit={onSubmitHandler}>
       <label htmlFor="email">Email</label>
       <div className="login-form__container">
         <input
@@ -12,6 +43,8 @@ const LoginForm = (): JSX.Element => {
           id="email"
           name="email"
           autoComplete="off"
+          onChange={handleEmail}
+          value={email}
           required
         />
         <div className="login-form__email-icon">
@@ -44,6 +77,8 @@ const LoginForm = (): JSX.Element => {
           type="password"
           id="password"
           name="password"
+          onChange={handlePassword}
+          value={password}
           required
         />
         <div className="login-form__password-icon">
