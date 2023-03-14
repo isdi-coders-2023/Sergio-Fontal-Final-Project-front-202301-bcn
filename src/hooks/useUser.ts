@@ -17,9 +17,9 @@ const useUser = () => {
 
     const { token }: LoginResponse = await response.json();
 
-    const { username }: CustomJwtPayload = decodeToken(token);
+    const { username, email }: CustomJwtPayload = decodeToken(token);
 
-    dispatch(loginUserActionCreator({ username, token }));
+    dispatch(loginUserActionCreator({ username, email, token }));
 
     localStorage.setItem("token", token);
   };

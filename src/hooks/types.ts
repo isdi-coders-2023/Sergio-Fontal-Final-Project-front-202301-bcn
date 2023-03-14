@@ -1,7 +1,7 @@
 import { JwtPayload } from "jwt-decode";
 
 export interface UserCredentials {
-  username: string;
+  email: string;
   password: string;
 }
 

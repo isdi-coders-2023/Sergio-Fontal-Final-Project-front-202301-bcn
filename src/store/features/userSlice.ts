@@ -3,6 +3,7 @@ import { UserStructure } from "./types";
 
 const initialState: UserStructure = {
   username: "",
+  email: "",
   token: "",
 };
 
@@ -10,10 +11,7 @@ export const usersSlice = createSlice({
   name: "users",
   initialState,
   reducers: {
-    loginUser: (
-      initialState,
-      action: PayloadAction<UserStructure>
-    ): UserStructure => ({
+    loginUser: (initialState, action: PayloadAction<UserStructure>) => ({
       ...action.payload,
       isLogged: true,
     }),
