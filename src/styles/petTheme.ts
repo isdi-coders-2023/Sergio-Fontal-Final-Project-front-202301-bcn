@@ -9,8 +9,7 @@ const petTheme: DefaultTheme = {
   },
   fonts: {
     main: "Roboto",
-    secondary: "Baloo Bhai 2",
-    terciary: "Sedgwick Ave",
+    secondary: "Sedgwick Ave",
   },
 };
 

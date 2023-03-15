@@ -11,7 +11,6 @@ declare module "styled-components" {
     fonts: {
       main: string;
       secondary: string;
-      terciary: string;
     };
   }
 }
