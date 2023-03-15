@@ -11,7 +11,7 @@ const LoginPageStyled = styled.section`
 
     h2,
     span {
-      font-family: ${(props) => props.theme.fonts.secondary};
+      font-family: "Baloo Bhai 2";
       font-size: 1.5rem;
     }
   }

@@ -15,11 +15,13 @@ const HeaderStyled = styled.header`
       h1 {
         font-family: "Baloo Bhai 2";
         font-size: 40px;
+        line-height: 1;
       }
 
       span {
         background-image: linear-gradient(90deg, #e21269, #ff7cb7);
         -webkit-background-clip: text;
+        background-clip: text;
         -webkit-text-fill-color: transparent;
         font-family: ${(props) => props.theme.fonts.secondary};
         font-size: 1.2rem;

@@ -1,7 +1,4 @@
 import { createGlobalStyle } from "styled-components";
-import "@fontsource/baloo-bhai-2";
-import "@fontsource/roboto";
-import "@fontsource/sedgwick-ave";
 
 const GlobalStyles = createGlobalStyle`
 *, *::after, *::before {
