@@ -1,11 +1,12 @@
 import { screen } from "@testing-library/react";
+import { renderRouterWithProviders } from "../testUtils/renderRouterWithProviders";
 import { renderWithProviders } from "../testUtils/renderWithProviders";
 import LoginPage from "./LoginPage";
 
 describe("Given a LoginPage component", () => {
   describe("When its rendered", () => {
     test("Then it should show a heading with text 'Sign into your account'", () => {
-      renderWithProviders(<LoginPage />);
+      renderRouterWithProviders(<LoginPage />);
 
       const text = "Sign into your account";
 
