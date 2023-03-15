@@ -6,8 +6,8 @@ const GlobalStyles = createGlobalStyle`
 }
 
 html, body {
-  background-color: ${(props) => props.theme.colors.main};
-  font-family: ${(props) => props.theme.fonts.main};
+  background-color: #fff;
+  font-family: "Roboto";
   margin: 0;
   min-height: 100vh;
   padding: 0;
