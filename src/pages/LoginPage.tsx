@@ -13,7 +13,7 @@ const LoginPage = (): JSX.Element => {
       <LoginForm></LoginForm>
       <span>
         Don't have an account?{" "}
-        <a href="LoginPage" className="highlighted">
+        <a href="/login" className="highlighted">
           Register Now
         </a>
       </span>

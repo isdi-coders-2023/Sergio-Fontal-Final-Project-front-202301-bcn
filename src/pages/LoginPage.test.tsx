@@ -44,7 +44,8 @@ describe("Given a LoginPage component", () => {
     });
 
     test("Then it should show a link with text 'Register Now'", () => {
-      renderWithProviders(<LoginPage />);
+      renderRouterWithProviders();
+
       const linkText = "Register Now";
 
       const expectedText = screen.getByRole("link", { name: linkText });

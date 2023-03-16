@@ -8,10 +8,10 @@ export const renderRouterWithProviders = (
   ui?: React.ReactElement,
   preloadedState?: PreloadedState<RootState>
 ) => {
-  const routerWithProvider = ui ? getComponentRouter(ui) : router;
+  const testRouter = ui ? getComponentRouter(ui) : router;
 
   return renderWithProviders(
-    <RouterProvider router={routerWithProvider}></RouterProvider>,
+    <RouterProvider router={testRouter}></RouterProvider>,
     preloadedState
   );
 };
