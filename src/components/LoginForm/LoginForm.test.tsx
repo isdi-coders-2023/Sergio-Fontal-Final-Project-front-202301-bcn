@@ -1,6 +1,9 @@
+import { PreloadedState } from "@reduxjs/toolkit";
 import { screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { UserCredentials } from "../../hooks/types";
+import { RootState } from "../../store";
+import { UserStructure } from "../../store/features/types";
 import { renderWithProviders } from "../../testUtils/renderWithProviders";
 import LoginForm from "./LoginForm";
 
@@ -21,7 +24,14 @@ describe("Given EnventForm component", () => {
 
   describe("When its rendered", () => {
     test("Then it should show an input labeled 'Email'", () => {
-      renderWithProviders(<LoginForm />);
+      const userState: UserStructure = {
+        username: "Pete",
+        email: "Pete@lluismemira.cat",
+        token: "kljdfs2390r3wnkfs09",
+      };
+      const preloadStateUser: PreloadedState<RootState> = { user: userState };
+
+      renderWithProviders(<LoginForm />, preloadStateUser);
 
       const expectedEmailInput = screen.getByLabelText(emailLabel);
 
