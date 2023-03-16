@@ -14,5 +14,25 @@ describe("Given a Layout component", () => {
 
       expect(expectedAriaLabel).toBeInTheDocument();
     });
+
+    test("Then it should not show an image of a sad dog", () => {
+      renderWithProviders(<Layout />);
+      const imageAlt = "A sad dog";
+
+      const expectedImage = screen.queryByRole("img", { name: imageAlt });
+
+      expect(expectedImage).toBeNull();
+    });
+  });
+
+  describe("When it's rendered and modal state property isOpen is true", () => {
+    test("Then it should show an image of a sad dog", () => {
+      renderWithProviders(<Layout />, { ui: { isOpen: true, isError: false } });
+      const imageAlt = "A sad dog";
+
+      const expectedImage = screen.getByRole("img", { name: imageAlt });
+
+      expect(expectedImage).toBeInTheDocument();
+    });
   });
 });
