@@ -1,4 +1,4 @@
-import { UserState, UserStructure } from "./types";
+import { UserState, UserStructure } from "../types";
 import { loginUserActionCreator, userReducer } from "./userSlice";
 
 describe("Given loginUser reducer", () => {

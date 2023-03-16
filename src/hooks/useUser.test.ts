@@ -3,9 +3,10 @@ import { server } from "../mocks/server";
 import { CustomJwtPayload, UserCredentials } from "./types";
 import useUser from "./useUser";
 import Wrapper from "../mocks/Wrapper";
-import { loginUserActionCreator } from "../store/features/userSlice";
 import { UserStructure } from "../store/features/types";
 import decodeToken from "jwt-decode";
+import { loginUserActionCreator } from "../store/features/userSlice/userSlice";
+import { openModalActionCreator } from "../store/features/uiSlice/uiSlice";
 
 beforeAll(() => {
   jest.clearAllMocks();
@@ -39,7 +40,7 @@ const mockTokenPayload: CustomJwtPayload = {
 const mockToken = "mockedToken";
 
 describe("Given a useUser custom Hook", () => {
-  describe("When its loginUser function is called with the username 'pet@petalert.com' and the password 'PetAdmin'", () => {
+  describe("When its loginUser function is called with a registered user (username 'pet@petalert.com' and password 'PetAdmin')", () => {
     test("Then it should call the dispatch with the loginUser Action creator", async () => {
       const {
         result: {
@@ -61,6 +62,24 @@ describe("Given a useUser custom Hook", () => {
 
       expect(mockDispatcher).toHaveBeenCalledWith(
         loginUserActionCreator(mockedUser)
+      );
+    });
+  });
+
+  describe("When its loginUser function receives an unregistered user", () => {
+    test("Then it should call the dispatch with the openModal action creator", async () => {
+      const {
+        result: {
+          current: { loginUser },
+        },
+      } = renderHook(() => useUser(), { wrapper: Wrapper });
+
+      const modalState = { isOpen: true, isError: true };
+
+      await act(async () => loginUser(userCredentials));
+
+      expect(mockDispatcher).toHaveBeenCalledWith(
+        openModalActionCreator(modalState)
       );
     });
   });
