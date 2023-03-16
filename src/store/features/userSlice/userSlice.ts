@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { UserStructure } from "./types";
+import { UserState, UserStructure } from "../types";
 
 const initialState: UserStructure = {
   username: "",
@@ -11,7 +11,10 @@ export const usersSlice = createSlice({
   name: "users",
   initialState,
   reducers: {
-    loginUser: (initialState, action: PayloadAction<UserStructure>) => ({
+    loginUser: (
+      initialState,
+      action: PayloadAction<UserStructure>
+    ): UserState => ({
       ...action.payload,
       isLogged: true,
     }),
