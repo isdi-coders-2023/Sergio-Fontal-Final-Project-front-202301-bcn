@@ -1,12 +1,12 @@
-import { act, renderHook } from "@testing-library/react";
-import { server } from "../mocks/server";
-import { CustomJwtPayload, UserCredentials } from "./types";
+import { renderHook } from "@testing-library/react";
+import server from "../../mocks/server";
+import { CustomJwtPayload, UserCredentials } from "../types";
 import useUser from "./useUser";
-import Wrapper from "../mocks/Wrapper";
-import { UserStructure } from "../store/features/types";
+import Wrapper from "../../mocks/Wrapper";
+import { UserStructure } from "../../store/features/types";
 import decodeToken from "jwt-decode";
-import { loginUserActionCreator } from "../store/features/userSlice/userSlice";
-import { openModalActionCreator } from "../store/features/uiSlice/uiSlice";
+import { loginUserActionCreator } from "../../store/features/userSlice/userSlice";
+import { openModalActionCreator } from "../../store/features/uiSlice/uiSlice";
 
 beforeAll(() => {
   jest.clearAllMocks();
@@ -20,8 +20,8 @@ afterAll(() => {
 
 const mockDispatcher = jest.fn();
 
-jest.mock("../store/hooks", () => ({
-  ...jest.requireActual("../store/hooks"),
+jest.mock("../../store/hooks", () => ({
+  ...jest.requireActual("../../store/hooks"),
   useAppDispatch: () => mockDispatcher,
 }));
 
@@ -58,7 +58,7 @@ describe("Given a useUser custom Hook", () => {
         token: mockToken,
       };
 
-      await act(async () => loginUser(userCredentials));
+      await loginUser(userCredentials);
 
       expect(mockDispatcher).toHaveBeenCalledWith(
         loginUserActionCreator(mockedUser)
@@ -76,7 +76,7 @@ describe("Given a useUser custom Hook", () => {
 
       const modalState = { isOpen: true, isError: true };
 
-      await act(async () => loginUser(userCredentials));
+      await loginUser(userCredentials);
 
       expect(mockDispatcher).toHaveBeenCalledWith(
         openModalActionCreator(modalState)
