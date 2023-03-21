@@ -13,3 +13,11 @@ export interface CustomJwtPayload extends JwtPayload {
   username: string;
   email: string;
 }
+
+export interface PetStructure {
+  id: string;
+  name: string;
+  image: string;
+}
+
+export type PetsStructure = PetStructure[];

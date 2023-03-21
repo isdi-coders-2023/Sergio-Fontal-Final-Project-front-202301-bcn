@@ -5,12 +5,14 @@ import {
   PreloadedState,
   ThunkAction,
 } from "@reduxjs/toolkit";
+import { petsReducer } from "./features/petSlice/petSlice";
 import { uiReducer } from "./features/uiSlice/uiSlice";
 import { userReducer } from "./features/userSlice/userSlice";
 
 const rootReducer = combineReducers({
   user: userReducer,
   ui: uiReducer,
+  pets: petsReducer,
 });
 
 export const setupStore = (preloadedState?: PreloadedState<RootState>) => {
