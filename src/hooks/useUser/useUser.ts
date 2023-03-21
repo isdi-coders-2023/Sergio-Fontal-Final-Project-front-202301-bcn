@@ -1,12 +1,13 @@
-import { useAppDispatch } from "../store/hooks";
-import { CustomJwtPayload, LoginResponse, UserCredentials } from "./types";
 import decodeToken from "jwt-decode";
-import { loginUserActionCreator } from "../store/features/userSlice/userSlice";
-import { openModalActionCreator } from "../store/features/uiSlice/uiSlice";
+import { useAppDispatch } from "../../store/hooks";
+import { UserCredentials, CustomJwtPayload, LoginResponse } from "../types";
+import { loginUserActionCreator } from "../../store/features/userSlice/userSlice";
+import { openModalActionCreator } from "../../store/features/uiSlice/uiSlice";
+
+const apiUrl = process.env.REACT_APP_URL!;
+const endpoint = "/users/login";
 
 const useUser = () => {
-  const apiUrl = process.env.REACT_APP_URL!;
-  const endpoint = "/users/login";
   const dispatch = useAppDispatch();
 
   const loginUser = async (userCredentials: UserCredentials) => {

@@ -1,8 +1,8 @@
 import LoginFormStyled from "./LoginFormStyled";
 import Button from "../Button/Button";
-import useUser from "../../hooks/useUser";
 import { useState } from "react";
 import { UserCredentials } from "../../hooks/types";
+import useUser from "../../hooks/useUser/useUser";
 
 const ininitalFormData: UserCredentials = { email: "", password: "" };
 
