@@ -6,6 +6,9 @@ const petTheme: DefaultTheme = {
     secondary: "#f5f5f7",
     terciary: "#000",
     quaternary: "#e21269",
+    adopt: "#8ac926",
+    care: "#ffca3a",
+    lost: "#ff999c",
   },
   fonts: {
     main: "Roboto",

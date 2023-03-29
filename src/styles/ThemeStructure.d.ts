@@ -7,6 +7,9 @@ declare module "styled-components" {
       secondary: string;
       terciary: string;
       quaternary: string;
+      adopt: string;
+      care: string;
+      lost: string;
     };
     fonts: {
       main: string;
