@@ -1,16 +1,14 @@
-import { createBrowserRouter, RouteObject, Navigate } from "react-router-dom";
+import { createBrowserRouter, RouteObject } from "react-router-dom";
 import App from "../components/App/App";
-import LoginPage from "../pages/LoginPage";
+import HomePage from "../pages/HomePage/HomePage";
+import LoginPage from "../pages/LoginPage/LoginPage";
 
 const routes: RouteObject[] = [
   {
     path: "/",
     element: <App />,
     children: [
-      {
-        path: "/",
-        element: <Navigate to={"/login"}></Navigate>,
-      },
+      { path: "/", element: <HomePage /> },
       { path: "/login", element: <LoginPage /> },
     ],
   },
