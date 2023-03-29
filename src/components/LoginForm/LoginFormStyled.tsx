@@ -42,6 +42,10 @@ const LoginFormStyled = styled.form`
     height: 40px;
     width: 40px;
   }
+
+  Button {
+    min-width: 220px;
+  }
 `;
 
 export default LoginFormStyled;
