@@ -1,10 +1,10 @@
 import { screen } from "@testing-library/react";
-import { renderRouterWithProviders } from "../testUtils/renderRouterWithProviders";
-import { renderWithProviders } from "../testUtils/renderWithProviders";
+import { renderRouterWithProviders } from "../../testUtils/renderRouterWithProviders";
+import { renderWithProviders } from "../../testUtils/renderWithProviders";
 import LoginPage from "./LoginPage";
 
 describe("Given a LoginPage component", () => {
-  describe("When its rendered", () => {
+  describe("When it's rendered", () => {
     test("Then it should show a heading with text 'Sign into your account'", () => {
       renderRouterWithProviders(<LoginPage />);
 
@@ -44,7 +44,7 @@ describe("Given a LoginPage component", () => {
     });
 
     test("Then it should show a link with text 'Register Now'", () => {
-      renderRouterWithProviders();
+      renderWithProviders(<LoginPage />);
 
       const linkText = "Register Now";
 
