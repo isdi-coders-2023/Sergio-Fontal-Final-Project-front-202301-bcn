@@ -1,6 +1,5 @@
-import { render, screen } from "@testing-library/react";
-import { ThemeProvider } from "styled-components";
-import petTheme from "../../styles/petTheme";
+import { screen } from "@testing-library/react";
+import { renderWithProviders } from "../../testUtils/renderWithProviders";
 import Button from "./Button";
 
 describe("Given a Button componet", () => {
@@ -8,11 +7,7 @@ describe("Given a Button componet", () => {
     test("The it should show a button with 'Login!' on it", () => {
       const text = "Login!";
 
-      render(
-        <ThemeProvider theme={petTheme}>
-          <Button text={text} />
-        </ThemeProvider>
-      );
+      renderWithProviders(<Button text={text} />);
 
       const expectedButton = screen.getByRole("button", { name: text });
 
